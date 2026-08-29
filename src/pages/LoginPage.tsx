@@ -14,8 +14,8 @@ interface Errors {
 
 function validate(userId: string, password: string): Errors {
   const errors: Errors = {}
-  if (!userId.trim()) errors.userId = 'User ID is required.'
-  else if (userId.trim().length < 3) errors.userId = 'User ID must be at least 3 characters.'
+  if (!userId.trim()) errors.userId = 'User name is required.'
+  else if (userId.trim().length < 3) errors.userId = 'User name must be at least 3 characters.'
   if (!password) errors.password = 'Password is required.'
   else if (password.length < 4) errors.password = 'Password must be at least 4 characters.'
   return errors
@@ -78,13 +78,13 @@ export function LoginPage() {
                 </div>
               )}
 
-              <Field label="User ID" error={errors.userId}>
+              <Field label="User name" error={errors.userId}>
                 {({ id, describedBy, invalid }) => (
                   <input
                     id={id}
                     className={`control ${invalid ? 'control--invalid' : ''}`.trim()}
                     type="text"
-                    placeholder="Enter User ID"
+                    placeholder="Enter User name"
                     autoComplete="username"
                     value={userId}
                     onChange={(event) => setUserId(event.target.value)}
