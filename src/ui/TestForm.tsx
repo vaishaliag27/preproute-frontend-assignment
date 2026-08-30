@@ -253,7 +253,7 @@ export function TestForm({ form, errors, onChange, onErrorsChange, loadingTopics
                 className={`control ${invalid ? 'control--invalid' : ''}`.trim()}
                 type="number"
                 min="1"
-                placeholder="Ex:250 Marks"
+                placeholder="Ex:50"
                 value={form.total_questions}
                 onChange={(event) => update('total_questions', event.target.value)}
                 aria-describedby={describedBy}
