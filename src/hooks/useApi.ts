@@ -22,7 +22,7 @@ export function useDeleteTest() {
     onMutate: (id) => {
       // Optimistic update - remove test immediately
       queryClient.setQueryData(['tests'], (old: any) =>
-        old ? old.filter((t: any) => t.id !== id) : []
+        Array.isArray(old) ? old.filter((t: any) => t.id !== id) : []
       )
     },
     onSuccess: () => {
