@@ -110,10 +110,6 @@ export function LoginPage() {
                 )}
               </Field>
 
-              <a className="login__forgot" href="#forgot">
-                Forgot password?
-              </a>
-
               <Button type="submit" loading={submitting} className="login__submit">
                 {submitting ? 'Signing in' : 'Login'}
               </Button>
