@@ -23,6 +23,7 @@ import type { TestFormErrors, TestFormState } from '../lib/test-form'
 import { TestForm } from '../ui/TestForm'
 import { TestSummaryCard } from '../ui/TestSummaryCard'
 import { useToast } from '../ui/toast/useToast'
+import sampleCsv from '../assets/sample-questions.csv?raw'
 
 const OPTION_KEYS: OptionKey[] = ['option1', 'option2', 'option3', 'option4']
 
@@ -559,13 +560,7 @@ function saveAndContinue() {
                 variant="outline"
                 size="sm"
                 onClick={() => {
-                  const csv = `question,option1,option2,option3,option4,correct_option,explanation,difficulty
-"What is the capital of France?","London","Berlin","Paris","Madrid","3","Paris is the capital of France, located on the Seine River.","easy"
-"Which planet is known as the Red Planet?","Venus","Mars","Jupiter","Saturn","2","Mars is called the Red Planet due to iron oxide on its surface.","easy"
-"What is the chemical symbol for Gold?","Ag","Au","Gd","Go","2","Au is the chemical symbol for Gold.","medium"
-"Who wrote 'Pride and Prejudice'?","Jane Austen","Charlotte Brontë","Emily Dickinson","George Eliot","1","Jane Austen wrote this famous novel published in 1813.","easy"
-"What is the largest country by land area?","Canada","China","United States","Russia","4","Russia is the largest country with 17.1 million square kilometers.","medium"`
-                  const blob = new Blob([csv], { type: 'text/csv' })
+                  const blob = new Blob([sampleCsv], { type: 'text/csv' })
                   const url = URL.createObjectURL(blob)
                   const a = document.createElement('a')
                   a.href = url
