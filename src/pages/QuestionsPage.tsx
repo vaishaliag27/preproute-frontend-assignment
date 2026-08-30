@@ -8,7 +8,7 @@ import { Breadcrumbs } from '../ui/Breadcrumbs'
 import { Button } from '../ui/Button'
 import { Field } from '../ui/Field'
 import { ConfirmDialog, Modal } from '../ui/Modal'
-import { TrashIcon, UploadIcon, ChevronLeftIcon, ChevronRightIcon } from '../ui/icons'
+import { TrashIcon, UploadIcon } from '../ui/icons'
 import { QuestionRail } from '../ui/QuestionRail'
 import { RichTextEditor } from '../ui/RichTextEditor'
 import { LoadingBlock } from '../ui/Spinner'
@@ -687,27 +687,6 @@ function saveAndContinue() {
               placeholder="Explain the correct answer (optional)"
               rows={3}
             />
-          </div>
-
-          <div className="pager">
-            <button
-              type="button"
-              className="pager__btn"
-              onClick={() => openQuestion((editingIndex ?? rows.length) - 1)}
-              disabled={(editingIndex ?? rows.length) <= 0}
-              aria-label="Previous question"
-            >
-              <ChevronLeftIcon size={18} />
-            </button>
-            <button
-              type="button"
-              className="pager__btn"
-              onClick={() => openQuestion((editingIndex ?? rows.length) + 1)}
-              disabled={editingIndex === null || editingIndex >= rows.length - 1}
-              aria-label="Next question"
-            >
-              <ChevronRightIcon size={18} />
-            </button>
           </div>
 
           <div>

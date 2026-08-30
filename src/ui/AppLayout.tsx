@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../auth/useAuth'
 import {
-  BellIcon,
   ChevronDownIcon,
   DashboardIcon,
   LogoutIcon,
@@ -70,10 +69,6 @@ export function AppLayout() {
               <Wordmark small />
             </Link>
           </div>
-
-          <button type="button" className="icon-btn" aria-label="Notifications">
-            <BellIcon size={17} />
-          </button>
 
           <div ref={accountRef} style={{ position: 'relative' }}>
             <button
