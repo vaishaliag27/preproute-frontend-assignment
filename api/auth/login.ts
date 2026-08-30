@@ -1,6 +1,8 @@
+import { VercelRequest, VercelResponse } from '@vercel/node'
+
 const BACKEND = 'https://admin-moderator-backend-staging.up.railway.app/api'
 
-export default async function handler(req, res) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const response = await fetch(`${BACKEND}/auth/login`, {
       method: req.method,
@@ -10,6 +12,6 @@ export default async function handler(req, res) {
     const data = await response.json()
     res.status(response.status).json(data)
   } catch (error) {
-    res.status(500).json({ error: error.message })
+    res.status(500).json({ error: (error as Error).message })
   }
 }
