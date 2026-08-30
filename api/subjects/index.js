@@ -13,7 +13,14 @@ export default async function handler(req, res) {
       body: req.method !== 'GET' ? JSON.stringify(req.body) : undefined,
     })
 
-    const data = await response.json()
+    const text = await response.text()
+    let data
+    try {
+      data = JSON.parse(text)
+    } catch {
+      data = { error: text || 'Invalid response from backend' }
+    }
+
     res.status(response.status).json(data)
   } catch (error) {
     res.status(500).json({ error: error.message })
